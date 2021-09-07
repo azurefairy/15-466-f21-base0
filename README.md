@@ -1,8 +1,8 @@
-# (TODO: your game's title)
+# Double Brickbreaker
 
-Author: (TODO: your name)
+Author: Brad Zhang
 
-Design: (TODO: In two sentences or fewer, describe what is new and interesting about your game.)
+Design: A brickbreaker game, where there are double the balls, double the paddles, and double the trouble! Each pong can only hit the ball of the corresponding color, and each brick can only be broken by the ball of the corresponding color.
 
 Screen Shot:
 
@@ -10,8 +10,8 @@ Screen Shot:
 
 How To Play:
 
-(TODO: describe the controls and (if needed) goals/strategy.)
+Use the W/S keys to control the green paddle, and the Up/Down arrow keys to control the blue paddle. The balls will pass through the paddle if the color doesn't match. Make sure to hit the balls back, or you'll be losing a bit of score!
 
-Sources: (TODO: list a source URL for any assets you did not create yourself. Make sure you have a license for the asset.)
+Sources: 15-466 Pong starter code :)
 
 This game was built with [NEST](NEST.md).

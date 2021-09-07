@@ -28,21 +28,21 @@ struct PongMode : Mode {
 	glm::vec2 ball_radius = glm::vec2(0.2f, 0.2f);
 
 	glm::vec2 left_paddle = glm::vec2(-court_radius.x + 0.5f, 0.0f);
-	glm::vec2 right_paddle = glm::vec2( court_radius.x - 0.5f, 0.0f);
+	glm::vec2 right_paddle = glm::vec2( -court_radius.x + 1.25f, 0.0f);
+	float lpaddle_vel = 0.0f;
+	float rpaddle_vel = 0.0f;
 
-	glm::vec2 ball = glm::vec2(0.0f, 0.0f);
-	glm::vec2 ball_velocity = glm::vec2(-1.0f, 0.0f);
+	glm::vec2 balll = glm::vec2(0.0f, 0.5f);
+	glm::vec2 balll_velocity = glm::vec2(-1.0f, 0.0f);
+	glm::vec2 ballr = glm::vec2(0.0f, -0.5f);
+	glm::vec2 ballr_velocity = glm::vec2(-1.0f, 0.0f);
 
-	uint32_t left_score = 0;
-	uint32_t right_score = 0;
+	enum block_type {block_l, block_r, block_empty, block_todelete};
+	block_type bricks[8][8];
+	glm::vec2 block_radius = glm::vec2(0.3f, court_radius.y / 8.0f);
 
-	float ai_offset = 0.0f;
-	float ai_offset_update = 0.0f;
-
-	//----- pretty gradient trails -----
-
-	float trail_length = 1.3f;
-	std::deque< glm::vec3 > ball_trail; //stores (x,y,age), oldest elements first
+	int score = 0;
+	uint32_t blocks_broken = 0;
 
 	//----- opengl assets / helpers ------
 
@@ -73,4 +73,6 @@ struct PongMode : Mode {
 	// computed in draw() as the inverse of OBJECT_TO_CLIP
 	// (stored here so that the mouse handling code can use it to position the paddle)
 
+	private:
+		glm::vec2 brick_loc(int i, int j);
 };
